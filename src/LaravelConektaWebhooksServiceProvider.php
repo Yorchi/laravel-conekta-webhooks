@@ -2,6 +2,7 @@
 
 namespace Yorchi\LaravelConektaWebhooks;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelConektaWebhooksServiceProvider extends ServiceProvider
@@ -11,37 +12,15 @@ class LaravelConektaWebhooksServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-conekta-webhooks');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-conekta-webhooks');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laravel-conekta-webhooks.php'),
+                __DIR__.'/../config/config.php' => config_path('conekta-webhooks.php'),
             ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-conekta-webhooks'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/laravel-conekta-webhooks'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-conekta-webhooks'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
         }
+
+        Route::macro('conektaWebhooks', function ($url) {
+            return Route::post($url, '\Yorchi\LaravelConektaWebhooks\ConektaWebhooksController');
+        });
     }
 
     /**
@@ -50,11 +29,6 @@ class LaravelConektaWebhooksServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-conekta-webhooks');
-
-        // Register the main class to use with the facade
-        $this->app->singleton('laravel-conekta-webhooks', function () {
-            return new LaravelConektaWebhooks;
-        });
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'conekta-webhooks');
     }
 }

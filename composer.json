@@ -3,7 +3,8 @@
     "description": "Package for handling Conekta webhooks API",
     "keywords": [
         "yorchi",
-        "laravel-conekta-webhooks"
+        "laravel-conekta-webhooks",
+        "conekta"
     ],
     "homepage": "https://github.com/yorchi/laravel-conekta-webhooks",
     "license": "MIT",
@@ -17,6 +18,8 @@
     ],
     "require": {
         "php": "^7.1",
+        "illuminate/http": "~5.8.0",
+        "illuminate/routing": "~5.8.0",
         "illuminate/support": "5.8.*"
     },
     "require-dev": {
@@ -36,7 +39,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true
@@ -45,10 +47,7 @@
         "laravel": {
             "providers": [
                 "Yorchi\\LaravelConektaWebhooks\\LaravelConektaWebhooksServiceProvider"
-            ],
-            "aliases": {
-                "LaravelConektaWebhooks": "Yorchi\\LaravelConektaWebhooks\\LaravelConektaWebhooksFacade"
-            }
+            ]
         }
     }
 }
