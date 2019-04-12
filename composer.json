@@ -1,0 +1,54 @@
+{
+    "name": "yorchi/laravel-conekta-webhooks",
+    "description": "Package for handling Conekta webhooks API",
+    "keywords": [
+        "yorchi",
+        "laravel-conekta-webhooks"
+    ],
+    "homepage": "https://github.com/yorchi/laravel-conekta-webhooks",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jorge Andrade",
+            "email": "j.andrade.dev@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yorchi\\LaravelConektaWebhooks\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yorchi\\LaravelConektaWebhooks\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yorchi\\LaravelConektaWebhooks\\LaravelConektaWebhooksServiceProvider"
+            ],
+            "aliases": {
+                "LaravelConektaWebhooks": "Yorchi\\LaravelConektaWebhooks\\LaravelConektaWebhooksFacade"
+            }
+        }
+    }
+}
