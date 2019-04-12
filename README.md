@@ -1,4 +1,4 @@
-# Very short description of the package
+# Handle Conekta webhooks in a Laravel application
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/yorchi/laravel-conekta-webhooks.svg?style=flat-square)](https://packagist.org/packages/yorchi/laravel-conekta-webhooks)
 [![Build Status](https://img.shields.io/travis/yorchi/laravel-conekta-webhooks/master.svg?style=flat-square)](https://travis-ci.org/yorchi/laravel-conekta-webhooks)
